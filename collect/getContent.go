@@ -7,21 +7,23 @@ import (
 	"github.com/gocolly/colly"
 )
 
-type Stats struct {
-	ItemName string
-	Rank     string
-	Team     string
-	Player   string
-	Value    string
+const (
+	cpblTopListURL = "http://www.cpbl.com.tw/stats/toplist.html"
+)
+
+// SingleStats :
+type SingleStats struct {
+	ItemName string `json:"itemName"`
+	Rank     string `json:"rank"`
+	Team     string `json:"team"`
+	Player   string `json:"player"`
+	Value    string `json:"value"`
 }
 
+// Start parsing
 func Start() {
 	c := colly.NewCollector()
-	stats := []Stats{}
-	// // Find and visit all links
-	// c.OnHTML("a[href]", func(e *colly.HTMLElement) {
-	// 	e.Request.Visit(e.Attr("href"))
-	// })
+	stats := []SingleStats{}
 
 	c.OnResponse(func(r *colly.Response) {
 		fmt.Println("Visting", string(r.Body))
@@ -37,7 +39,7 @@ func Start() {
 			value := e.ChildText("tr:nth-of-type(" + strconv.Itoa(i+1) + ") td:nth-of-type(4)")
 
 			fmt.Printf("%s, Rank%d: %s %s %s %s \n", item, i, rank, team, name, value)
-			neStat := Stats{
+			neStat := SingleStats{
 				Rank:     rank,
 				Team:     team,
 				Player:   name,
@@ -49,7 +51,7 @@ func Start() {
 
 	})
 
-	c.Visit("http://www.cpbl.com.tw/stats/toplist.html")
+	c.Visit(cpblTopListURL)
 
 	fmt.Println("final result", stats)
 }
