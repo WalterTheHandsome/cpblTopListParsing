@@ -1,4 +1,5 @@
 ref: http://www.angelfire.com/ultra/louisje/html/ansiadv.htm
+ref: http://www.angelfire.com/ultra/louisje/html/ansi.htm
 
 【上色基本控制碼】
 要為文章內容，圖形上色，要下指令，這個指令就是長這樣子 *[m 其中這個指令中，*並不是鍵盤上那個*號，這個*並不是鍵盤上面那個 直接按出來的，而是有另外的按法，在 Maple 的系統那個*的按法是按 ctrl + u ， ctrl 就是鍵盤左下角那顆按鈕，按住 ctrl 再按 u 就會跑出一個* ，只要按一個出來就夠了喔，按太多可是沒用的，然後接下來的[和m就 簡單啦，那個就只是鍵盤上的[和m直接按出來就好，全部的步驟如下：
